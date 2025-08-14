@@ -1,0 +1,10 @@
+Within the xtb folder there are the initial_run and restart_run sub-folders - these are template scripts for running the xtb rmsd metadynamics on cx3. Each folder contains a .pbs and a .sh
+    - Within the .sh the fasta sequence and the size of the sphere of the wall potential need to be changed. To estimate the size of the wall potential, trial and error running locally and looking at the first couple of total energies works quite wel, i.e., if within 1ps the energy changes by -30, the sphere is probably too small
+    - The restart_run sub-folder contains a template for however many restart runs you want to perform; make sure to adjust the total time of the simulation to stay within the wall time of the .pbs script, and copy the mdrestart from the previous run into the directory that your .pbs and .sh files are in.
+    - Each .sh creates a new directory and the outputs are in the relevant xtb_output.log files
+
+The most important things to remember are: 
+(1) Correct FASTA sequence in .sh
+(2) Correct length of time in .sh
+(3) Correct wall potential sphere size in .sh
+(4) Correct mdrestart file present (do everything in sub-folders and label them restart_run_1..2..3 etc) in directory
