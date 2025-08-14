@@ -1,0 +1,5 @@
+The prepro folder requires you to enter the FASTA sequence of the peptide you want to simulate in the prepro.ipynb file. It then does the following:
+    - Runs the fasta_to_pdb.sh script, generating a .pdb of the sequence with caps on the terminus' 
+    - Creates a box of four of the peptides with random orientations and saves this with file name 4_{fasta}.pdb. Because of the random orientations, peptides can still end up in very close proximity to each other, and you should therefore visualise the .pdb file generated in VMD/PyMOL to verify the peptides are a suitable distance from one another. Further, depending on your peptide size you should change the radius parameter accordingly
+
+To use this code, ideally you should create a dedicated sub-folder for the peptide you want to simulate, and copy the two files into that sub-folder, to prevent confusion when running lots of simulations of different peptides. One could follow these commands: mkdir {fasta}; cp fasta_to_pdb.sh prepro.ipynb ./{fasta}; cd {fasta} and then run prepro.ipynb
