@@ -1,0 +1,9 @@
+This folder contains two notebooks: 
+(1) preprocessing.ipynb
+(2) deeptica.ipynb
+
+(1)     Requires a .trj file and a .pdb file where each peptide is separated by 'TER'. Ouputs a plumed.dat file and subsequently a COLVAR file with CVs of 
+        phi/psi angles for each alpha carbon and distances between all alpha carbons. Code works independent of amount of amino acids in peptides, only 
+        thing that matters is having 'TER' between peptides in the .pdb file.
+
+(2)     Requires a COLVAR file produced by (1). Ouputs a .ptc version of the ML model, ready to be used in dftb for running biased simulations. 
