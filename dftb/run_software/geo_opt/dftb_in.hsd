@@ -1,0 +1,22 @@
+Geometry = xyzFormat {
+    <<< "4_peptides_v6.xyz"
+}
+
+Hamiltonian = xTB {
+    Method = "GFN2-xTB"
+    Solvation = GeneralizedBorn { ParamFile = "param_gbsa_h2o.txt" }
+    Solver = QR{}
+    ConvergentSCCOnly = Yes
+    MaxSCCIterations = 500
+    SCCTolerance = 1e-6
+}
+
+Driver = GeometryOptimization {
+  Optimizer = Rational {}
+  MovedAtoms = 1:-1
+  MaxSteps = 500
+  OutputPrefix = "geom.out"
+  Convergence {GradElem = 1E-4}
+}
+
+Options = { WriteDetailedOut = Yes }
