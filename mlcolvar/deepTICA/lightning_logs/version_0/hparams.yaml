@@ -1,0 +1,11 @@
+layers:
+- 222
+- 30
+- 30
+- 2
+n_cvs: null
+options:
+  nn:
+    activation: tanh
+postprocessing: null
+preprocessing: null
