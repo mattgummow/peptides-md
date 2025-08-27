@@ -1,0 +1,30 @@
+Geometry = xyzFormat {
+    <<< "geom.out.xyz"
+}
+
+Hamiltonian = xTB {
+    Method = "GFN2-xTB"
+    Solvation = GeneralizedBorn { ParamFile = param_gbsa_h2o.txt  }       ## Implicit solvent model
+    Solver = DivideAndConquer{}
+    ConvergentSCCOnly = Yes
+    MaxSCCIterations = 300
+}
+
+
+Driver = VelocityVerlet{
+  TimeStep [fs] = 0.25
+  Steps = 40000
+  Thermostat = NoseHoover {
+    Temperature [Kelvin] = 400
+    CouplingStrength [cm^-1] = 3200
+  }
+  Plumed= Yes
+  MDRestartFrequency = 10
+}
+
+
+Options = { WriteDetailedOut= No                            ## TimingVerbosity is for benchmarking
+  TimingVerbosity = 2 }                                      
+Analysis = { WriteBandOut = No }                                        ## Speeds up supposedly
+ParserOptions = {}                                                      ## Something about input file version
+Parallel = { UseOmpThreads = Yes }

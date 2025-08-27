@@ -1,0 +1,1 @@
+In this folder, there are two sub-folders named geo_opt and md_opt. Before either can be ran, the prerun_script.sh should be run to convert the .pdb file into a .xyz file ready for DFTB+
