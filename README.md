@@ -58,4 +58,13 @@ The second file in the folder, `deeptica.ipynb`, takes the generated `COLVAR` fi
 
 ## (4) DFTB+ simulations
 
+The final part of the work is to perform biased simulations at a high level of theory, along the generated ML collective variables, and then reweighting/rerunning these simulations as a function of other collective variables. 
+
+Running DFTB+ with the ML collective variables requires compiling and installing a custom version of the code. The `install_software` sub-folder contains everything needed for this. All that must be run is the `master_install.sh` shell script. 
+
+To run a simulation, first perform a geometry optimisation. Before this, however, the `convert_pdb.sh` script should be run to convert the .pdb file into a .xyz file ready for DFTB+. A geometry optimisation can be performed using the `dftb_in.hsd` file and `script.sh` script within the `geo_opt` sub-folder. Once this is completed, you can then copy the `geom.out.xyz` from the previous sub-folder into the current directory, alongside the ML model in .ptc form, and a `plumed.dat` file that will run metadynamics on the system.
+
+With this in place, one can then run biased simulations using the ML collective variables. 
+
+
 
